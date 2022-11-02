@@ -1,16 +1,15 @@
 <template>
   <div>
-
     <div class="block">
       <div class="container">
         {{ text }}
       </div>
 
-     <div class="wrapper">
+      <div class="wrapper">
         <input v-model="inputText" class="input-text" />
         <button @click="send" class="input-button">Отправить</button>
+      </div>
     </div>
-   </div>
   </div>
 </template>
 
@@ -28,10 +27,9 @@ export default {
     };
 
     return {
-      number,
       text,
       inputText,
-      send,
+      send
     };
   },
 };
