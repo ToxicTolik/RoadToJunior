@@ -6,9 +6,8 @@
       </div>
 
       <div class="wrapper">
-        <input v-model="inputText" class="input-text" />
+        <input v-model="inputText" @input="setErrorVisability" class="input-text" />
         <button @click="send" class="input-button">Отправить</button>
-        
       </div>
     </div>
   </div>
@@ -21,16 +20,28 @@ export default {
   setup() {
     const text = ref("Тестовый текст");
     const inputText = ref(null);
+    const hasError = ref(false);
 
     const send = () => {
+      if (!inputText.value) {
+        hasError.value = true
+        console.log(hasError.value)
+        return
+      }
+
       text.value = inputText.value;
-      inputText.value = " ";
+      inputText.value = "";
+    };
+
+    const setErrorVisability = () => {
+      hasError.value = false
     };
 
     return {
       text,
       inputText,
-      send
+      send,
+      setErrorVisability,
     };
   },
 };
@@ -46,7 +57,7 @@ export default {
   border-radius: 10px;
   color: rgb(0, 0, 0);
   text-align: center;
-  font-weight:bold;
+  font-weight: bold;
 }
 .wrapper {
   display: flex;
