@@ -8,6 +8,7 @@
       <div class="wrapper">
         <input v-model="inputText" class="input-text" />
         <button @click="send" class="input-button">Отправить</button>
+        
       </div>
     </div>
   </div>
@@ -23,7 +24,7 @@ export default {
 
     const send = () => {
       text.value = inputText.value;
-      inputText.value = "";
+      inputText.value = " ";
     };
 
     return {
@@ -40,11 +41,12 @@ export default {
   width: 50%;
 }
 .container {
-  background: gray;
+  background: rgb(184, 183, 183);
   padding: 50px;
   border-radius: 10px;
-  color: white;
+  color: rgb(0, 0, 0);
   text-align: center;
+  font-weight:bold;
 }
 .wrapper {
   display: flex;
@@ -57,6 +59,11 @@ export default {
   width: 100%;
 }
 .input-button {
-  width: 50%;
+  width: 30%;
+  cursor: pointer;
+  color: rgb(0, 0, 0);
+  border-radius: 6px;
+  border-style: outset;
+  background: rgb(224, 74, 74);
 }
 </style>
