@@ -1,5 +1,17 @@
 <template>
-  <div class="block">
+  <div class="main-container">
+    <div v-for="(burger, index) of burgers" :key="index" class="burger-wrapper">
+      <img class="image" :src="burger.image" />
+      <div class="text-content">
+        <b>{{ burger.title }}</b>
+        <p>{{ burger.description }}</p>
+      </div>
+      <div class="button-content">
+        <button class="base-button">Купить</button>
+        <button class="base-button gray">Подробнее</button>
+      </div>
+    </div>
+
     <div class="container">
       {{ text }}
     </div>
@@ -81,12 +93,15 @@ export default {
 </script>
 
 <style>
-.block {
-  width: 50%;
+.main-container {
+  width: 70%;
   margin: 0 auto;
+  font-family: 'Roboto', sans-serif;
+  padding-top: 20px;
 }
 .container {
   /* background: #f4f4f4; */
+  margin-top: 99px;
   padding: 50px;
   border-radius: 10px;
   color: rgb(0, 0, 0);
@@ -125,5 +140,41 @@ export default {
   border-radius: 6px;
   color: white;
   text-decoration: none;
+}
+
+/* Стили для бургеров */
+.burger-wrapper {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: 144px 2fr 140px;
+  align-items: center;
+  margin-bottom: 20px;
+  box-shadow: -4px 4px 20px 4px rgba(194, 194, 194, 0.25);
+  border-radius: 10px;
+  padding: 13px
+}
+.button-content {
+  display: grid;
+  row-gap: 16px;
+}
+.base-button {
+  width: 100%;
+  font-size: 16px;
+  cursor: pointer;
+  background: #EE7203;
+  border-radius: 7px;
+  border: none;
+  text-decoration: none;
+  color: white;
+  padding: 10px 20px;
+}
+.base-button.gray {
+  background: #D0D0D0;
+}
+.image {
+  width: 144px;
+}
+p {
+  margin-bottom: 0;
 }
 </style>
