@@ -14,6 +14,13 @@
     <div v-show="hasError" class="error-message">
       {{ errorText }}
     </div>
+    <div v-for="burger of burgers" :key="burger">
+      <img :src="burger.image" class="image" alt="" />
+      </div> class="description"
+      {{ burger.title }}
+      {{ burger.description }}
+    </div>
+    </div>
   </div>
 </template>
 
@@ -126,4 +133,12 @@ export default {
   color: white;
   text-decoration: none;
 }
+.image {
+  width: 150px;
+}
+.discription{
+  border: 15px;
+  border-radius: 6px;
+}
+
 </style>
