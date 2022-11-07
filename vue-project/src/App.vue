@@ -159,7 +159,7 @@ export default {
 }
 .base-button {
   width: 100%;
-  font-size: 16px;
+  font-size: 14px;
   cursor: pointer;
   background: #EE7203;
   border-radius: 7px;
