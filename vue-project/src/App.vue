@@ -2,7 +2,7 @@
   <div class="main-container">
     <div v-for="(burger, index) of burgers" :key="index" class="burger-wrapper">
       <img class="image" :src="burger.image" />
-      <div class="text-content">
+      <div>
         <b>{{ burger.title }}</b>
         <p>{{ burger.description }}</p>
       </div>
