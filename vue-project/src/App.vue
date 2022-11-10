@@ -35,7 +35,7 @@
 </template>
 
 <script>
-import { ref, computed } from "vue";
+import { ref, onMounted } from "vue";
 
 export default {
   setup() {
@@ -88,6 +88,7 @@ export default {
 
     const switchTheme = () => {
       isDark.value = !isDark.value;
+      localStorage.isDarkTheme = isDark.value;
       setDarkTheme(document.querySelector("#dark-theme-style") || false);
     };
 
@@ -103,6 +104,13 @@ export default {
         darkTheme.parentNode.removeChild(darkTheme);
       }
     };
+
+    onMounted(() => {
+      if ( localStorage.isDarkTheme === 'true') {
+        isDark.value = true
+        setDarkTheme(false);
+      }
+    });
 
     return {
       text,
