@@ -8,12 +8,15 @@
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore"
   },
   "dependencies": {
+    "volga-ui": "^0.1.5",
     "vue": "^3.2.41"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^3.1.2",
     "eslint": "^8.22.0",
     "eslint-plugin-vue": "^9.3.0",
+    "sass": "^1.56.0",
+    "sass-loader": "^10.3.1",
     "vite": "^3.1.8"
   }
 }

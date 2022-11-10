@@ -11,7 +11,7 @@
         <button class="base-button gray">Подробнее</button>
       </div>
     </div>
-
+    <VButton outlined> 333 тест тест </VButton>
     <div class="container">
       {{ text }}
     </div>
@@ -26,13 +26,20 @@
     <div v-show="hasError" class="error-message">
       {{ errorText }}
     </div>
+
+    <VButton outlined color="red"> Test </VButton>
   </div>
 </template>
 
 <script>
 import { ref } from "vue";
+import { VButton } from "volga-ui";
+import "volga-ui/dist/bundle.css";
 
 export default {
+  components: {
+    VButton,
+  },
   setup() {
     const text = ref("Тестовый текст");
     const inputText = ref(null);
@@ -96,7 +103,7 @@ export default {
 .main-container {
   width: 70%;
   margin: 0 auto;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   padding-top: 20px;
 }
 .container {
@@ -151,7 +158,7 @@ export default {
   margin-bottom: 20px;
   box-shadow: -4px 4px 20px 4px rgba(194, 194, 194, 0.25);
   border-radius: 10px;
-  padding: 13px
+  padding: 13px;
 }
 .button-content {
   display: grid;
@@ -161,7 +168,7 @@ export default {
   width: 100%;
   font-size: 14px;
   cursor: pointer;
-  background: #EE7203;
+  background: #ee7203;
   border-radius: 7px;
   border: none;
   text-decoration: none;
@@ -169,7 +176,7 @@ export default {
   padding: 10px 20px;
 }
 .base-button.gray {
-  background: #D0D0D0;
+  background: #d0d0d0;
 }
 .image {
   width: 144px;
