@@ -1,4 +1,3 @@
-
 .block {
   width: 50%;
   margin: 0 auto;
@@ -59,7 +58,7 @@
   grid-template-columns: 144px 2fr;
   align-items: center;
   gap: 16px;
-  }
+}
 .text-description {
   margin-bottom: 0;
   padding: 20px;
@@ -68,13 +67,10 @@
   text-align: center;
   font-weight: none;
   box-shadow: 0px 5px 16px 2px rgba(34, 60, 80, 0.2);
-  
 }
 .order-button {
   display: grid;
   row-gap: 5px;
-  
-  
 }
 .ord-button {
   width: 30%;
@@ -85,16 +81,12 @@
   border: none;
   padding: 8px 15px;
   text-decoration: none;
-  background: #f88221
-  
+  background: #f88221;
 }
 .ord-button.gray {
   background: #b4b2b2;
   margin-bottom: 40px;
 }
-
-
-
 
 body {
   transition: 1s;
@@ -102,7 +94,6 @@ body {
 
 h1 {
   text-align: center;
-
 }
 
 .wrapper1 {
@@ -112,7 +103,6 @@ h1 {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
 }
 
 button {

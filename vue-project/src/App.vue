@@ -1,5 +1,9 @@
 <template>
   <div class="block">
+    <button @click="switchTheme" :class="['input-button', { '-dark': isDark }]">
+      Включить {{ !isDark ? "темную" : "светлую" }} тему
+    </button>
+
     <div class="container">
       {{ text }}
     </div>
@@ -9,7 +13,9 @@
         @input="setErrorVisability"
         class="input-text"
       />
-      <button @click="send" class="input-button">Отправить</button>
+      <button @click="send" :class="['input-button', { '-dark': isDark }]">
+        Отправить
+      </button>
     </div>
     <div v-show="hasError" class="error-message">
       {{ errorText }}
@@ -25,25 +31,20 @@
         <p class="text-description">{{ burger.description }}</p>
       </div>
     </div>
-
-    <!-- <VolgaButton strong> Test </VolgaButton> -->
   </div>
 </template>
 
 <script>
-import { ref } from "vue";
-import { VolgaButton } from "volga-ui";
-import "volga-ui/dist/bundle.css";
+import { ref, computed } from "vue";
 
 export default {
-  components: {
-    VolgaButton,
-  },
   setup() {
     const text = ref("Поле для ввода текста ниже");
     const inputText = ref(null);
     const hasError = ref(false);
     const errorText = ref("");
+    const isDark = ref(false);
+
     const burgers = [
       {
         title: "Шримп Ролл",
@@ -85,26 +86,58 @@ export default {
       hasError.value = false;
     };
 
+    const switchTheme = () => {
+      isDark.value = !isDark.value;
+      setDarkTheme(document.querySelector("#dark-theme-style") || false);
+    };
+
+    const setDarkTheme = (darkTheme) => {
+      if (!darkTheme) {
+        const darkThemeLinkEl = document.createElement("link");
+        darkThemeLinkEl.setAttribute("rel", "stylesheet");
+        darkThemeLinkEl.setAttribute("href", "/src/dark-mode.css");
+        darkThemeLinkEl.setAttribute("id", "dark-theme-style");
+
+        document.querySelector("head").append(darkThemeLinkEl);
+      } else {
+        darkTheme.parentNode.removeChild(darkTheme);
+      }
+    };
+
     return {
       text,
       inputText,
       send,
       setErrorVisability,
+      switchTheme,
       errorText,
       hasError,
       burgers,
+      isDark,
     };
   },
 };
 </script>
 
 <style>
+/* body {
+  padding: 0;
+  margin: 0;
+  height: 100vh;
+}
+
+#app {
+  background: rgba(116, 193, 245, 0.274);
+  height: 100%;
+  width: 100%;
+} */
+
 .block {
   width: 50%;
   margin: 0 auto;
 }
 .container {
-  /* background: #f4f4f4; */
+  background: #f4f4f4;
   padding: 30px;
   border-radius: 10px;
   color: rgb(0, 0, 0);
@@ -138,6 +171,10 @@ export default {
   background: rgb(255, 145, 1);
   box-shadow: 9px 1px 17px 4px rgba(55, 57, 59, 0.16);
 }
+.input-button.-dark {
+  background: rgb(9, 1, 14);
+}
+
 .error-message {
   width: 94%;
   margin-top: 10px;
@@ -153,13 +190,14 @@ export default {
   margin-bottom: 1px;
 }
 .burger-item {
+  background: #f4f4f4;
   border: 15px;
   border-radius: 6px;
   display: grid;
   grid-template-columns: 144px 2fr;
   align-items: center;
   gap: 16px;
-  }
+}
 .text-description {
   margin-bottom: 0;
   padding: 20px;
@@ -168,13 +206,10 @@ export default {
   text-align: center;
   font-weight: none;
   box-shadow: 0px 5px 16px 2px rgba(34, 60, 80, 0.2);
-  
 }
 .order-button {
   display: grid;
   row-gap: 5px;
-  
-  
 }
 .ord-button {
   width: 30%;
@@ -187,7 +222,6 @@ export default {
   text-decoration: none;
   background: #f88221;
   box-shadow: 0px 5px 16px 2px rgba(34, 60, 80, 0.2);
-  
 }
 
 .ord-button.gray {
@@ -195,5 +229,4 @@ export default {
   margin-bottom: 40px;
   box-shadow: 0px 5px 16px 2px rgba(34, 60, 80, 0.2);
 }
-
 </style> 
