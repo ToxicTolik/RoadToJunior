@@ -106,8 +106,8 @@ export default {
     };
 
     onMounted(() => {
-      if ( localStorage.isDarkTheme === 'true') {
-        isDark.value = true
+      if (localStorage.isDarkTheme === "true") {
+        isDark.value = true;
         setDarkTheme(false);
       }
     });
