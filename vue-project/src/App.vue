@@ -6,7 +6,7 @@
 
     <FormWrapper :isDark="isDark" />
 
-    <div class="burger-item" v-for="burger of burgers" :key="burger">
+    <div class="burger-item" v-for="burger of burgersStub" :key="burger">
       <img :src="burger.image" class="image" alt="" />
       <div>
         <b>{{ burger.title }}</b>
@@ -31,7 +31,6 @@ export default {
   },
   setup() {
     const isDark = ref(false);
-    const burgers = burgersStub
 
     const switchTheme = () => {
       isDark.value = !isDark.value;
@@ -61,7 +60,7 @@ export default {
 
     return {
       switchTheme,
-      burgers,
+      burgersStub,
       isDark,
     };
   },
