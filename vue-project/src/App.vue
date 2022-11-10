@@ -69,32 +69,9 @@ export default {
 </script>
 
 <style>
-.container-with-input {
-  margin: 20px 0 50px;
-}
-
 .block {
   width: 50%;
   margin: 0 auto;
-}
-.container {
-  background: #f4f4f4;
-  padding: 30px;
-  border-radius: 10px;
-  color: rgb(0, 0, 0);
-  text-align: center;
-  font-weight: bold;
-  box-shadow: 0px 5px 16px 2px rgba(34, 60, 80, 0.2);
-}
-.wrapper {
-  display: flex;
-  justify-content: space-between;
-  gap: 10px;
-  width: 100%;
-  margin-top: 10px;
-}
-.input-text {
-  width: 100%;
 }
 .input-button {
   width: 30%;
@@ -116,14 +93,6 @@ export default {
   background: rgb(9, 1, 14);
 }
 
-.error-message {
-  margin-top: 10px;
-  background: rgb(224, 74, 74);
-  border-radius: 6px;
-  color: rgb(255, 255, 255);
-  text-decoration: none;
-  padding: 8px 15px;
-}
 .image {
   width: 150px;
   box-shadow: 9px 1px 17px 4px rgba(55, 57, 59, 0.16);
